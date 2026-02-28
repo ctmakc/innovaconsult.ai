@@ -1,0 +1,643 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWidget from '../components/FloatingWidget.astro';
+import '../styles/global.css';
+
+const title = 'AI Consulting & LLM Integration for Business | InnovaConsult.ai';
+const description = 'Expert AI consulting: LLM integration, AI agents, chatbots, and automation. From strategy to production deployment with measurable ROI. Book a free consultation.';
+
+const services = [
+  {
+    title: 'AI Strategy & Roadmap',
+    description: 'We assess your business processes, identify high-impact AI opportunities, and build a phased implementation roadmap with clear KPIs and ROI projections.',
+    icon: 'compass',
+  },
+  {
+    title: 'LLM Integration (ChatGPT/Claude API)',
+    description: 'Production-grade integration of large language models into your existing systems. API orchestration, prompt engineering, fine-tuning, and cost optimization.',
+    icon: 'brain',
+  },
+  {
+    title: 'Process Automation with AI Agents',
+    description: 'Autonomous AI agents that handle complex multi-step workflows — from data extraction and analysis to decision-making and reporting.',
+    icon: 'bot',
+  },
+  {
+    title: 'Custom AI Chatbots & Assistants',
+    description: 'Domain-specific conversational AI trained on your knowledge base. Customer support, internal tools, and lead qualification — available 24/7.',
+    icon: 'message',
+  },
+  {
+    title: 'Crypto & FinTech AI Solutions',
+    description: 'AI-powered compliance monitoring, transaction analysis, risk scoring, and automated reporting for cryptocurrency and financial technology companies.',
+    icon: 'coins',
+  },
+  {
+    title: 'AI-Powered SEO & Content (LLM Optimization / GEO)',
+    description: 'Generative Engine Optimization for AI search visibility. Automated content pipelines, semantic SEO, and structured data strategies that drive organic traffic.',
+    icon: 'search',
+  },
+];
+
+const steps = [
+  { number: '01', title: 'Discovery', description: 'We analyze your business processes, tech stack, and goals to identify the highest-impact AI use cases.' },
+  { number: '02', title: 'Strategy', description: 'We design a detailed implementation plan with architecture decisions, timeline, budget, and expected ROI.' },
+  { number: '03', title: 'Implementation', description: 'Our engineers build, test, and deploy AI solutions integrated with your existing infrastructure.' },
+  { number: '04', title: 'Optimization', description: 'Continuous monitoring, fine-tuning, and scaling to maximize performance and minimize costs.' },
+];
+
+const advantages = [
+  {
+    title: 'Domain Expertise',
+    subtitle: 'Tax, Legal, Crypto',
+    description: 'Deep vertical knowledge from 12+ years consulting across regulated industries including tax compliance, legal tech, and cryptocurrency.',
+    icon: 'shield',
+  },
+  {
+    title: 'End-to-End Delivery',
+    subtitle: 'Strategy to Code',
+    description: 'From initial assessment to production deployment. No handoffs between strategy consultants and engineers — one team delivers it all.',
+    icon: 'layers',
+  },
+  {
+    title: 'Measurable ROI',
+    subtitle: 'Data-Driven Results',
+    description: 'Every engagement starts with clear success metrics. We track time saved, cost reduction, accuracy improvement, and revenue impact.',
+    icon: 'trending',
+  },
+  {
+    title: 'Enterprise Security',
+    subtitle: 'Compliance-First',
+    description: 'SOC 2 aligned processes, data encryption at rest and in transit, private model deployments, and full audit trails for regulated environments.',
+    icon: 'lock',
+  },
+];
+
+const caseStudies = [
+  {
+    client: 'Crystal Tax',
+    title: 'AI Tax Assistant',
+    description: 'Built an AI-powered tax consultation assistant that handles 70% of routine client queries automatically, reducing response time from 24 hours to under 2 minutes.',
+    metrics: ['70% query automation', '12x faster responses', '35% cost reduction'],
+    tag: 'Tax & Compliance',
+  },
+  {
+    client: 'Unistaff',
+    title: 'Recruitment AI Platform',
+    description: 'Developed an AI recruitment pipeline that screens resumes, matches candidates to positions, and conducts initial assessments across 300+ jurisdictions.',
+    metrics: ['5x faster screening', '40% better match rate', '60% less manual work'],
+    tag: 'HR & Recruitment',
+  },
+  {
+    client: 'MMIX Clients',
+    title: 'SEO Automation Engine',
+    description: 'Created an AI content generation and optimization system that produces SEO-optimized articles, manages internal linking, and tracks ranking performance.',
+    metrics: ['3x organic traffic', '200+ articles/month', '45% higher rankings'],
+    tag: 'SEO & Content',
+  },
+];
+
+const blogPosts = [
+  {
+    title: 'How to Implement AI in Your Business: 2026 Guide',
+    excerpt: 'A practical step-by-step framework for integrating AI into your operations — from initial assessment to full-scale deployment.',
+    tag: 'Strategy',
+    date: 'Feb 2026',
+  },
+  {
+    title: 'LLM Integration Patterns for Enterprise',
+    excerpt: 'Proven architectural patterns for integrating ChatGPT, Claude, and open-source LLMs into enterprise systems at scale.',
+    tag: 'Engineering',
+    date: 'Feb 2026',
+  },
+  {
+    title: 'AI Agents vs Traditional Automation: ROI Comparison',
+    excerpt: 'Quantitative analysis of AI agent deployments versus rule-based automation across 50+ real-world implementations.',
+    tag: 'Analysis',
+    date: 'Jan 2026',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How much does AI consulting cost?',
+    answer: 'Our engagements typically range from $5,000 for a focused AI strategy assessment to $50,000–$150,000 for full implementation projects. We offer a free initial consultation to scope your needs and provide a detailed estimate. Every project includes clear ROI projections so you can evaluate the investment against expected returns.',
+  },
+  {
+    question: 'How long does LLM integration take?',
+    answer: 'A basic LLM API integration (chatbot, document processing) can be production-ready in 2–4 weeks. More complex implementations involving custom fine-tuning, multi-agent systems, or enterprise integrations typically take 6–12 weeks. We provide a detailed timeline during the strategy phase.',
+  },
+  {
+    question: 'Do you work with specific industries?',
+    answer: 'We specialize in tax and accounting, legal tech, cryptocurrency and fintech, recruitment, and digital marketing. However, our AI implementation methodology applies across industries. We have delivered projects in healthcare, e-commerce, logistics, and education as well.',
+  },
+  {
+    question: 'What AI models and technologies do you use?',
+    answer: 'We work with OpenAI (GPT-4, GPT-4o), Anthropic (Claude 4), open-source models (Llama, Mistral), and specialized models for specific tasks. Our technology stack includes LangChain, vector databases (Pinecone, Weaviate), and cloud platforms (AWS, GCP, Azure). We recommend the best fit based on your requirements, budget, and data privacy needs.',
+  },
+  {
+    question: 'Can you work with our existing tech stack?',
+    answer: 'Absolutely. We design AI solutions to integrate with your current infrastructure — whether that is a legacy ERP system, modern microservices, or a no-code platform. Our engineers have experience with all major programming languages, cloud providers, and enterprise software platforms.',
+  },
+  {
+    question: 'How do you ensure data security and compliance?',
+    answer: 'Security is built into every project. We offer private model deployments, on-premise options, data encryption, access controls, and full audit logging. For regulated industries, we ensure compliance with GDPR, SOC 2, and industry-specific requirements. All data processing agreements are established before any work begins.',
+  },
+];
+
+// JSON-LD Structured Data
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'InnovaConsult.ai',
+  url: 'https://innovaconsult.ai',
+  logo: 'https://innovaconsult.ai/favicon.svg',
+  description: 'AI consulting and LLM integration for businesses. Strategy, implementation, and optimization of artificial intelligence solutions.',
+  email: 'ai@innovaconsult.ai',
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Innova Consulting Group',
+  },
+  sameAs: [
+    'https://t.me/+380677777230',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: 'ai@innovaconsult.ai',
+    availableLanguage: ['English', 'Ukrainian', 'Russian'],
+  },
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'AI Consulting',
+  provider: {
+    '@type': 'Organization',
+    name: 'InnovaConsult.ai',
+  },
+  areaServed: 'Worldwide',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AI Consulting Services',
+    itemListElement: services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.description,
+      },
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- JSON-LD Structured Data -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <Header />
+
+  <main>
+    <!-- ==================== HERO ==================== -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="absolute inset-0 hero-grid"></div>
+      <!-- Decorative orbs -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-cyan/10 rounded-full blur-3xl"></div>
+
+      <div class="section-container relative z-10 py-20 lg:py-32">
+        <div class="max-w-4xl">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/5 mb-8">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+            <span class="text-sm text-brand-cyan font-medium">AI Consulting for Forward-Thinking Companies</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-white leading-tight mb-6">
+            AI That Means<br />
+            <span class="gradient-text">Business</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-brand-muted max-w-2xl mb-10 leading-relaxed">
+            We help companies implement AI solutions that deliver measurable ROI — from strategy to production deployment.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#services" class="btn-primary text-base px-8 py-4">
+              Explore Services
+              <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <a href="#contact" class="btn-secondary text-base px-8 py-4">
+              Book a Free Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TRUST BAR ==================== -->
+    <section class="relative border-y border-white/5 bg-brand-dark-lighter/50">
+      <div class="section-container py-6">
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-brand-muted">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Part of Innova Consulting Group</span>
+          </div>
+          <span class="hidden sm:inline text-white/20">|</span>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+            <span>12+ Years in Business</span>
+          </div>
+          <span class="hidden sm:inline text-white/20">|</span>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+            <span>300+ Jurisdictions</span>
+          </div>
+          <span class="hidden sm:inline text-white/20">|</span>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+            <span>Trusted by 500+ Companies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="py-20 lg:py-28">
+      <div class="section-container">
+        <div class="text-center mb-16">
+          <span class="text-sm font-medium text-brand-cyan uppercase tracking-wider">What We Do</span>
+          <h2 class="section-heading mt-3">AI Solutions That Drive Results</h2>
+          <p class="section-subheading">From strategic planning to hands-on implementation — we cover every stage of your AI transformation journey.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <article class="card group hover:translate-y-[-2px]">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-blue/20 to-brand-cyan/20 flex items-center justify-center mb-5 group-hover:from-brand-blue/30 group-hover:to-brand-cyan/30 transition-colors">
+                {service.icon === 'compass' && (
+                  <svg class="w-6 h-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></svg>
+                )}
+                {service.icon === 'brain' && (
+                  <svg class="w-6 h-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5 7.5V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2.5c2.9-1.2 5-4.1 5-7.5a8 8 0 0 0-8-8z" /><path d="M12 2v4" /><path d="m4.93 4.93 2.83 2.83" /><path d="m16.24 7.76 2.83-2.83" /></svg>
+                )}
+                {service.icon === 'bot' && (
+                  <svg class="w-6 h-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8" /><rect x="4" y="8" width="16" height="12" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></svg>
+                )}
+                {service.icon === 'message' && (
+                  <svg class="w-6 h-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z" /><path d="M8 12h.01" /><path d="M12 12h.01" /><path d="M16 12h.01" /></svg>
+                )}
+                {service.icon === 'coins' && (
+                  <svg class="w-6 h-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg>
+                )}
+                {service.icon === 'search' && (
+                  <svg class="w-6 h-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" /></svg>
+                )}
+              </div>
+              <h3 class="text-xl font-heading font-semibold text-white mb-3">{service.title}</h3>
+              <p class="text-brand-muted text-sm leading-relaxed">{service.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HOW WE WORK ==================== -->
+    <section id="process" class="py-20 lg:py-28 bg-brand-dark-lighter/30">
+      <div class="section-container">
+        <div class="text-center mb-16">
+          <span class="text-sm font-medium text-brand-cyan uppercase tracking-wider">Our Process</span>
+          <h2 class="section-heading mt-3">How We Work</h2>
+          <p class="section-subheading">A proven four-step methodology that takes you from idea to production with minimal risk and maximum impact.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+          {steps.map((step, i) => (
+            <div class="relative">
+              {/* Connector line */}
+              {i < steps.length - 1 && (
+                <div class="hidden lg:block absolute top-10 left-[60%] w-[calc(100%-20%)] h-px bg-gradient-to-r from-brand-blue/40 to-brand-cyan/40"></div>
+              )}
+              <div class="card text-center relative">
+                <div class="text-4xl font-heading font-bold gradient-text mb-4">{step.number}</div>
+                <h3 class="text-xl font-heading font-semibold text-white mb-3">{step.title}</h3>
+                <p class="text-brand-muted text-sm leading-relaxed">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY US ==================== -->
+    <section id="why-us" class="py-20 lg:py-28">
+      <div class="section-container">
+        <div class="text-center mb-16">
+          <span class="text-sm font-medium text-brand-cyan uppercase tracking-wider">Our Advantage</span>
+          <h2 class="section-heading mt-3">Why InnovaConsult.ai</h2>
+          <p class="section-subheading">We combine deep industry expertise with cutting-edge AI engineering to deliver solutions that actually work in production.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {advantages.map((adv) => (
+            <div class="card flex gap-5">
+              <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-brand-blue/20 to-brand-cyan/20 flex items-center justify-center">
+                {adv.icon === 'shield' && (
+                  <svg class="w-7 h-7 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
+                )}
+                {adv.icon === 'layers' && (
+                  <svg class="w-7 h-7 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="m2 17 10 5 10-5" /><path d="m2 12 10 5 10-5" /></svg>
+                )}
+                {adv.icon === 'trending' && (
+                  <svg class="w-7 h-7 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>
+                )}
+                {adv.icon === 'lock' && (
+                  <svg class="w-7 h-7 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                )}
+              </div>
+              <div>
+                <h3 class="text-lg font-heading font-semibold text-white">{adv.title}</h3>
+                <span class="text-xs text-brand-cyan font-medium">{adv.subtitle}</span>
+                <p class="text-brand-muted text-sm leading-relaxed mt-2">{adv.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CASE STUDIES ==================== -->
+    <section id="cases" class="py-20 lg:py-28 bg-brand-dark-lighter/30">
+      <div class="section-container">
+        <div class="text-center mb-16">
+          <span class="text-sm font-medium text-brand-cyan uppercase tracking-wider">Results</span>
+          <h2 class="section-heading mt-3">Case Studies</h2>
+          <p class="section-subheading">Real projects, real impact. See how we helped businesses transform their operations with AI.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {caseStudies.map((cs) => (
+            <article class="card group hover:translate-y-[-2px]">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-medium text-brand-cyan px-3 py-1 rounded-full border border-brand-cyan/30 bg-brand-cyan/5">{cs.tag}</span>
+                <span class="text-xs text-brand-muted">{cs.client}</span>
+              </div>
+              <h3 class="text-xl font-heading font-semibold text-white mb-3">{cs.title}</h3>
+              <p class="text-brand-muted text-sm leading-relaxed mb-5">{cs.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {cs.metrics.map((metric) => (
+                  <span class="text-xs font-medium text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">
+                    {metric}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOG PREVIEW ==================== -->
+    <section id="blog" class="py-20 lg:py-28">
+      <div class="section-container">
+        <div class="text-center mb-16">
+          <span class="text-sm font-medium text-brand-cyan uppercase tracking-wider">Insights</span>
+          <h2 class="section-heading mt-3">From Our Blog</h2>
+          <p class="section-subheading">Expert perspectives on AI implementation, LLM engineering, and digital transformation.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {blogPosts.map((post) => (
+            <article class="card group hover:translate-y-[-2px]">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-medium text-brand-cyan px-3 py-1 rounded-full border border-brand-cyan/30 bg-brand-cyan/5">{post.tag}</span>
+                <span class="text-xs text-brand-muted">{post.date}</span>
+              </div>
+              <h3 class="text-lg font-heading font-semibold text-white mb-3 group-hover:text-brand-cyan transition-colors">
+                <a href="#">{post.title}</a>
+              </h3>
+              <p class="text-brand-muted text-sm leading-relaxed mb-4">{post.excerpt}</p>
+              <a href="#" class="inline-flex items-center text-sm text-brand-blue hover:text-brand-cyan transition-colors">
+                Read more
+                <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section id="faq" class="py-20 lg:py-28 bg-brand-dark-lighter/30">
+      <div class="section-container">
+        <div class="text-center mb-16">
+          <span class="text-sm font-medium text-brand-cyan uppercase tracking-wider">FAQ</span>
+          <h2 class="section-heading mt-3">Frequently Asked Questions</h2>
+          <p class="section-subheading">Common questions about our AI consulting services, timeline, and process.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-3">
+          {faqs.map((faq, i) => (
+            <div class="faq-item card !p-0 cursor-pointer" data-faq={i}>
+              <button class="w-full flex items-center justify-between p-5 text-left" aria-expanded="false">
+                <span class="font-heading font-semibold text-white pr-4">{faq.question}</span>
+                <svg class="faq-chevron w-5 h-5 text-brand-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+              </button>
+              <div class="faq-answer">
+                <p class="px-5 pb-5 text-brand-muted text-sm leading-relaxed">{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA + CONTACT ==================== -->
+    <section id="contact" class="py-20 lg:py-28 relative overflow-hidden">
+      <!-- Background decorations -->
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-cyan/5 rounded-full blur-3xl"></div>
+
+      <div class="section-container relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
+            Ready to Transform Your<br />Business with <span class="gradient-text">AI</span>?
+          </h2>
+          <p class="section-subheading">Get a free consultation to discuss your AI strategy. No commitment — just actionable insights.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <!-- Contact Form -->
+          <form
+            id="contact-form"
+            class="card !p-8 space-y-5"
+            action="https://formspree.io/f/placeholder"
+            method="POST"
+          >
+            <div>
+              <label for="name" class="block text-sm font-medium text-white mb-1.5">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="John Smith"
+                class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-white placeholder:text-brand-muted/50
+                       focus:outline-none focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/50 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-white mb-1.5">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="john@company.com"
+                class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-white placeholder:text-brand-muted/50
+                       focus:outline-none focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/50 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="company" class="block text-sm font-medium text-white mb-1.5">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Acme Inc."
+                class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-white placeholder:text-brand-muted/50
+                       focus:outline-none focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/50 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-white mb-1.5">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                placeholder="Tell us about your project and goals..."
+                class="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-white placeholder:text-brand-muted/50
+                       focus:outline-none focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/50 transition-colors resize-none"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full text-base py-4">
+              Send Message
+              <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
+            </button>
+          </form>
+
+          <!-- Contact Info -->
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-heading font-semibold text-white mb-4">Reach Us Directly</h3>
+              <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                Prefer to reach out directly? Contact us via messenger or email. We typically respond within 2 hours during business hours.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Telegram -->
+              <a
+                href="https://t.me/+380677777230"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card !p-4 flex items-center gap-4 group hover:translate-y-[-1px]"
+              >
+                <div class="w-12 h-12 rounded-xl bg-[#229ED9]/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-medium text-white">Telegram</span>
+                  <p class="text-xs text-brand-muted">Quick response, usually within minutes</p>
+                </div>
+                <svg class="w-4 h-4 text-brand-muted ml-auto group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+              </a>
+
+              <!-- WhatsApp -->
+              <a
+                href="https://api.whatsapp.com/send/?phone=380677777230"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card !p-4 flex items-center gap-4 group hover:translate-y-[-1px]"
+              >
+                <div class="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-medium text-white">WhatsApp</span>
+                  <p class="text-xs text-brand-muted">Available for voice and video calls</p>
+                </div>
+                <svg class="w-4 h-4 text-brand-muted ml-auto group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+              </a>
+
+              <!-- Email -->
+              <a
+                href="mailto:ai@innovaconsult.ai"
+                class="card !p-4 flex items-center gap-4 group hover:translate-y-[-1px]"
+              >
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+                </div>
+                <div>
+                  <span class="text-sm font-medium text-white">ai@innovaconsult.ai</span>
+                  <p class="text-xs text-brand-muted">For detailed proposals and partnerships</p>
+                </div>
+                <svg class="w-4 h-4 text-brand-muted ml-auto group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWidget />
+
+  <!-- FAQ Script -->
+  <script>
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const button = item.querySelector('button')!;
+      button.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach((el) => {
+          el.classList.remove('open');
+          el.querySelector('button')!.setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,42 @@
+# InnovaConsult.ai
+
+> AI consulting and LLM integration for businesses. Part of Innova Consulting Group with 12+ years of experience across 300+ jurisdictions.
+
+## About
+
+InnovaConsult.ai is the AI division of Innova Consulting Group. We help companies implement artificial intelligence solutions that deliver measurable ROI — from strategy and roadmap to production deployment and optimization.
+
+## Services
+
+- **AI Strategy & Roadmap**: Business process assessment, AI opportunity identification, phased implementation roadmaps with KPIs and ROI projections.
+- **LLM Integration (ChatGPT/Claude API)**: Production-grade large language model integration, API orchestration, prompt engineering, fine-tuning, and cost optimization.
+- **Process Automation with AI Agents**: Autonomous AI agents for complex multi-step workflows including data extraction, analysis, decision-making, and reporting.
+- **Custom AI Chatbots & Assistants**: Domain-specific conversational AI for customer support, internal tools, and lead qualification, trained on your knowledge base.
+- **Crypto & FinTech AI Solutions**: AI-powered compliance monitoring, transaction analysis, risk scoring, and automated reporting for cryptocurrency and financial technology companies.
+- **AI-Powered SEO & Content (LLM Optimization / GEO)**: Generative Engine Optimization, automated content pipelines, semantic SEO, and structured data strategies.
+
+## Industries
+
+- Tax & Accounting
+- Legal Tech
+- Cryptocurrency & FinTech
+- Recruitment & HR
+- Digital Marketing & SEO
+- E-commerce
+- Healthcare
+- Logistics
+
+## Contact
+
+- Website: https://innovaconsult.ai
+- Email: ai@innovaconsult.ai
+- Telegram: https://t.me/+380677777230
+- WhatsApp: https://api.whatsapp.com/send/?phone=380677777230
+
+## Innova Consulting Group Companies
+
+- Crystal Tax (crystal.tax) — Tax consulting
+- MMIX Digital (mmix.ua) — Digital marketing
+- Legal.ua (legal.ua) — Legal services
+- CRMius (crmius.com) — CRM solutions
+- Unistaff AI (unistaff.ai) — AI recruitment

@@ -1,0 +1,127 @@
+---
+const navLinks = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#why-us' },
+  { label: 'Blog', href: '#blog' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="section-container">
+    <nav class="flex items-center justify-between h-16 sm:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group" aria-label="InnovaConsult.ai Home">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+        </div>
+        <span class="text-lg sm:text-xl font-heading font-bold text-white">
+          Innova<span class="gradient-text">Consult</span>.ai
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm text-brand-muted hover:text-white transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="#contact" class="btn-primary text-sm !px-5 !py-2.5">
+          Book a Call
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center" id="bar1"></span>
+        <span class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></span>
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center" id="bar3"></span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-x-0 top-16 bg-brand-dark/95 backdrop-blur-lg border-t border-white/5
+           transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300"
+  >
+    <div class="section-container py-6 flex flex-col gap-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link text-lg text-brand-muted hover:text-white transition-colors py-2"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="#contact" class="btn-primary text-center mt-2">
+        Book a Call
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('header')!;
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+  let isMenuOpen = false;
+
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('bg-brand-dark/90', 'backdrop-blur-lg', 'shadow-lg', 'shadow-black/10');
+    } else {
+      header.classList.remove('bg-brand-dark/90', 'backdrop-blur-lg', 'shadow-lg', 'shadow-black/10');
+    }
+  });
+
+  // Mobile menu toggle
+  mobileMenuBtn.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    mobileMenuBtn.setAttribute('aria-expanded', String(isMenuOpen));
+
+    if (isMenuOpen) {
+      mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      bar1.style.transform = 'translateY(4px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-4px) rotate(-45deg)';
+    } else {
+      mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      bar1.style.transform = '';
+      bar2.style.opacity = '1';
+      bar3.style.transform = '';
+    }
+  });
+
+  // Close menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      isMenuOpen = false;
+      mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      bar1.style.transform = '';
+      bar2.style.opacity = '1';
+      bar3.style.transform = '';
+    });
+  });
+</script>

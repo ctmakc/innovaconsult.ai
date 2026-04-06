@@ -1,214 +1,195 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const faq = [
+const offerTracks = [
   {
-    question: 'Do I need to report every crypto transaction to the CRA?',
-    answer:
-      'Yes. Canadian taxpayers should maintain complete records of buys, sells, swaps, and transfers because the CRA can request a full audit trail.'
+    title: 'AI Strategy',
+    text: 'Executive-level positioning, use-case selection, ROI framing, and rollout sequencing for teams that need clarity before they buy tools.'
   },
   {
-    question: 'Is staking income taxable in Canada?',
-    answer:
-      'Generally yes. Staking rewards are commonly treated as business or investment income depending on your activity profile.'
+    title: 'Workflow Automation',
+    text: 'Design and implementation of agent-assisted operating flows for sales, operations, inboxes, knowledge work, and internal service desks.'
   },
   {
-    question: 'How are NFTs taxed for Canadian residents?',
-    answer:
-      'NFT disposals can trigger capital gains or business income tax, and NFT creators may also have GST/HST considerations.'
-  },
-  {
-    question: 'Can I use an offshore company while living in Canada?',
-    answer:
-      'Possibly, but structures must be designed to comply with Canadian tax residency, foreign reporting, and anti-avoidance rules.'
-  },
-  {
-    question: 'What crypto records should I keep for CRA reporting?',
-    answer:
-      'Keep exchange exports, wallet addresses, transaction IDs, valuation sources, and fiat on/off-ramp documents for each tax year.'
+    title: 'LLM Delivery',
+    text: 'Practical deployment of copilots, assistants, routing layers, evaluation loops, and human-approval workflows without demo-ware fluff.'
   }
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer
-    }
-  }))
-};
+const engagements = [
+  '2-week audit sprint with prioritized roadmap',
+  '6-week pilot to prove one production workflow',
+  'Fractional AI transformation leadership for execution'
+];
 
-const businessSchema = {
+const faq = [
+  {
+    question: 'What kind of companies is this for?',
+    answer: 'InnovaConsult.ai is built for owner-led businesses, service firms, and operating teams that want AI to improve throughput, response time, and decision quality.'
+  },
+  {
+    question: 'Do you only advise, or do you implement?',
+    answer: 'Both. We can stay at the strategy layer, but the default model is strategy plus delivery so recommendations become live systems.'
+  },
+  {
+    question: 'What is the fastest path to value?',
+    answer: 'A focused audit plus one high-friction workflow pilot. That gives a clear baseline, a production win, and evidence for broader rollout.'
+  }
+];
+
+const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'InnovaConsult Canada',
-  url: 'https://innovaconsult.ca',
-  telephone: '+1-613-867-7767',
-  email: 'canada@innovaconsult.ca',
-  areaServed: 'Canada',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Ottawa',
-    addressRegion: 'ON',
-    addressCountry: 'CA'
-  },
-  sameAs: ['https://crystal.tax']
+  name: 'InnovaConsult.ai',
+  url: 'https://innovaconsult.ai',
+  email: 'hello@innovaconsult.ai',
+  areaServed: 'Global',
+  description:
+    'AI consulting, workflow automation, and LLM implementation for ambitious operating teams.'
 };
 ---
 
 <BaseLayout
-  title="InnovaConsult.ca | Crypto Tax & International Compliance for Canadians"
-  description="Ottawa-based specialists in crypto tax Canada, CRA crypto reporting, international structures, and business immigration."
+  title="InnovaConsult.ai | AI Consulting and Workflow Automation"
+  description="AI consulting, workflow automation, and LLM implementation for ambitious operating teams."
 >
-  <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="#" class="text-xl font-extrabold text-navy">InnovaConsult<span class="text-red">.ca</span></a>
-      <nav class="hidden gap-6 text-sm font-medium text-slate-700 md:flex">
-        <a href="#services" class="hover:text-red">Services</a>
-        <a href="#why-us" class="hover:text-red">Why Us</a>
-        <a href="#blog" class="hover:text-red">Blog</a>
-        <a href="#faq" class="hover:text-red">FAQ</a>
-        <a href="#contact" class="hover:text-red">Contact</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <button class="rounded-full border border-slate-300 px-3 py-1 text-xs font-bold text-slate-700">EN</button>
-        <button class="rounded-full border border-slate-300 px-3 py-1 text-xs font-bold text-slate-500">FR</button>
-        <a
-          href="#contact"
-          class="hidden rounded-full bg-red px-5 py-2 text-sm font-bold text-white transition hover:bg-navy md:inline-block"
-          >Free Consultation</a
-        >
-      </div>
-    </div>
-  </header>
-
   <main>
-    <section class="relative isolate overflow-hidden bg-navy text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_42%),linear-gradient(180deg,rgba(30,58,95,0.84),rgba(30,58,95,0.93))]"></div>
-      <svg class="absolute bottom-0 left-0 right-0 h-28 w-full opacity-20" viewBox="0 0 1000 120" preserveAspectRatio="none"><path fill="white" d="M0,120 L0,70 L60,68 L70,40 L90,40 L100,68 L140,68 L140,55 L175,55 L175,68 L220,68 L220,47 L255,47 L255,68 L310,68 L310,53 L340,53 L340,68 L420,68 L420,58 L455,58 L455,68 L520,68 L520,42 L550,42 L550,68 L635,68 L635,48 L670,48 L670,68 L730,68 L730,56 L760,56 L760,68 L820,68 L820,46 L845,46 L845,68 L920,68 L920,38 L950,38 L950,68 L1000,68 L1000,120 Z" /></svg>
-      <div class="relative mx-auto max-w-6xl px-6 pb-28 pt-24 md:pt-32">
-        <p class="mb-5 inline-block rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em]">
-          Ottawa • Canadian Corporate Advisory
+    <section class="relative overflow-hidden border-b border-cyan-500/20 bg-ink">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.22),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(37,99,235,0.22),transparent_26%)]"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <p class="inline-flex rounded-full border border-cyan-400/25 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">
+          AI consulting for real operations
         </p>
-        <h1 class="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">International Expertise. Canadian Compliance.</h1>
-        <p class="mt-6 max-w-2xl text-lg text-slate-100">
-          Crypto tax, international structures, and business immigration for Canadians.
+        <h1 class="mt-6 max-w-4xl font-display text-5xl font-bold leading-tight text-white md:text-7xl">
+          Build AI systems that change throughput, not just slide decks.
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
+          InnovaConsult.ai helps businesses turn AI ambition into production systems: better inbox handling,
+          faster service operations, sharper sales follow-up, and cleaner executive visibility.
         </p>
-        <a href="#contact" class="mt-10 inline-block rounded-full bg-red px-8 py-3 text-base font-bold text-white shadow-card transition hover:bg-white hover:text-navy">Book a Free Call</a>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href="#contact"
+            class="rounded-full bg-cyan-400 px-7 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+          >
+            Book a Strategy Call
+          </a>
+          <a
+            href="#offers"
+            class="rounded-full border border-slate-700 px-7 py-3 font-semibold text-slate-100 transition hover:border-cyan-300 hover:text-cyan-200"
+          >
+            See Engagement Models
+          </a>
+        </div>
+        <div class="mt-16 grid gap-4 md:grid-cols-3">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">Outcome</p>
+            <p class="mt-3 text-2xl font-semibold text-white">AI roadmap with operator reality baked in</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">Delivery</p>
+            <p class="mt-3 text-2xl font-semibold text-white">Pilots, assistants, workflows, and decision loops</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">Bias</p>
+            <p class="mt-3 text-2xl font-semibold text-white">Production first. Hype last.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="services" class="mx-auto max-w-6xl px-6 py-20">
-      <h2 class="section-title">Core Services</h2>
-      <p class="section-subtitle">Cross-border strategy built for Canadian regulation and real-world execution.</p>
+    <section id="offers" class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <h2 class="section-title">What We Build</h2>
+      <p class="section-subtitle">A focused advisory and delivery stack for companies that need execution, not theatre.</p>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <article class="rounded-2xl border border-slate-200 p-7 shadow-card">
-          <h3 class="text-2xl font-bold text-navy">Crypto Tax Canada</h3>
-          <p class="mt-3 text-slate-600">CRA reporting support across T1/T2 filings, DeFi activity, staking, mining, and NFTs.</p>
-        </article>
-        <article class="rounded-2xl border border-slate-200 p-7 shadow-card">
-          <h3 class="text-2xl font-bold text-navy">International Structures</h3>
-          <p class="mt-3 text-slate-600">Compliant offshore and international company strategies for Canadian residents.</p>
-        </article>
-        <article class="rounded-2xl border border-slate-200 p-7 shadow-card">
-          <h3 class="text-2xl font-bold text-navy">Business Immigration</h3>
-          <p class="mt-3 text-slate-600">Planning for Start-up Visa, Self-Employed, and Provincial Nominee pathways.</p>
-        </article>
+        {offerTracks.map((track) => (
+          <article class="rounded-3xl border border-slate-800 bg-slate-900/80 p-7 shadow-card">
+            <h3 class="font-display text-2xl font-semibold text-white">{track.title}</h3>
+            <p class="mt-4 text-base leading-7 text-slate-300">{track.text}</p>
+          </article>
+        ))}
       </div>
     </section>
 
-    <section id="why-us" class="bg-snow py-20">
-      <div class="mx-auto max-w-6xl px-6">
-        <h2 class="section-title">Why InnovaConsult Canada</h2>
-        <div class="mt-8 grid gap-4 md:grid-cols-4">
-          <p class="rounded-xl bg-white p-5 text-center font-semibold text-navy">Ottawa-based</p>
-          <p class="rounded-xl bg-white p-5 text-center font-semibold text-navy">Part of Innova Group (12+ years)</p>
-          <p class="rounded-xl bg-white p-5 text-center font-semibold text-navy">CRA-compliant advisory</p>
-          <p class="rounded-xl bg-white p-5 text-center font-semibold text-navy">Crypto specialists</p>
+    <section class="border-y border-slate-800 bg-slate-900/60">
+      <div class="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200">How we engage</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold text-white">From audit to operator-owned rollout.</h2>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+            The default path is simple: map friction, rank use cases, implement one workflow end to end, and then
+            expand only after the first system proves itself in the real business.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-cyan-500/20 bg-slate-950/80 p-8">
+          <ul class="space-y-4">
+            {engagements.map((item) => (
+              <li class="rounded-2xl border border-slate-800 px-5 py-4 text-base text-slate-200">{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="mx-auto max-w-6xl px-6 py-20">
-      <div class="rounded-3xl bg-navy p-10 text-white">
-        <p class="text-sm font-bold uppercase tracking-[0.2em] text-red">Crypto Tax Highlight</p>
-        <h2 class="mt-3 text-3xl font-extrabold">Complete Guide to Crypto Tax in Canada</h2>
-        <ul class="mt-6 grid gap-3 text-slate-100 md:grid-cols-3">
-          <li>Capital gains and business income treatment differ by activity.</li>
-          <li>CRA expects full wallet-to-wallet and exchange transaction records.</li>
-          <li>Late filings can trigger penalties, interest, and reassessment risk.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="blog" class="bg-snow py-20">
-      <div class="mx-auto max-w-6xl px-6">
-        <h2 class="section-title">Latest Insights</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <article class="rounded-2xl bg-white p-6 shadow-card">
-            <h3 class="text-xl font-bold text-navy">CRA Crypto Reporting Checklist for 2026</h3>
-            <p class="mt-3 text-slate-600">A practical filing checklist for investors, traders, and founders.</p>
-          </article>
-          <article class="rounded-2xl bg-white p-6 shadow-card">
-            <h3 class="text-xl font-bold text-navy">How Canadians Use International Holding Structures</h3>
-            <p class="mt-3 text-slate-600">When international structures help—and where compliance fails most often.</p>
-          </article>
-          <article class="rounded-2xl bg-white p-6 shadow-card">
-            <h3 class="text-xl font-bold text-navy">Business Immigration Pathways for Tech Entrepreneurs</h3>
-            <p class="mt-3 text-slate-600">A fast overview of Start-up Visa and provincial strategy options.</p>
-          </article>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-7">
+          <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">01</p>
+          <h3 class="mt-4 font-display text-2xl text-white">Audit the mess</h3>
+          <p class="mt-4 text-slate-300">Map decisions, queues, exceptions, handoffs, and where work currently dies.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-7">
+          <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">02</p>
+          <h3 class="mt-4 font-display text-2xl text-white">Ship one workflow</h3>
+          <p class="mt-4 text-slate-300">Pilot a contained AI system that moves a measurable bottleneck in production.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-7">
+          <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">03</p>
+          <h3 class="mt-4 font-display text-2xl text-white">Scale with control</h3>
+          <p class="mt-4 text-slate-300">Add governance, review loops, and rollout discipline so AI becomes dependable.</p>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="mx-auto max-w-6xl px-6 py-20">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="mt-8 space-y-4">
-        {faq.map((item) => (
-          <details class="rounded-xl border border-slate-200 p-5">
-            <summary class="cursor-pointer text-lg font-bold text-navy">{item.question}</summary>
-            <p class="mt-3 text-slate-600">{item.answer}</p>
-          </details>
-        ))}
+    <section class="border-y border-slate-800 bg-slate-900/50">
+      <div class="mx-auto max-w-4xl px-6 py-20">
+        <h2 class="section-title">Questions We Usually Get</h2>
+        <div class="mt-8 space-y-4">
+          {faq.map((item) => (
+            <details class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6">
+              <summary class="cursor-pointer text-lg font-semibold text-white">{item.question}</summary>
+              <p class="mt-4 leading-7 text-slate-300">{item.answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="bg-navy py-20 text-white">
-      <div class="mx-auto max-w-6xl px-6">
-        <h2 class="text-3xl font-extrabold md:text-4xl">Contact InnovaConsult Canada</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-          <div class="rounded-2xl border border-white/20 p-6">
-            <p class="font-semibold">Email</p>
-            <a href="mailto:canada@innovaconsult.ca" class="mt-2 block text-xl text-white hover:text-red">canada@innovaconsult.ca</a>
-            <p class="mt-5 font-semibold">Phone</p>
-            <a href="tel:+16138677767" class="mt-2 block text-xl text-white hover:text-red">+1 (613) 867-7767</a>
-            <p class="mt-5 font-semibold">Location</p>
-            <p class="mt-2 text-lg">Ottawa, ON</p>
-          </div>
-          <div class="rounded-2xl border border-white/20 p-6">
-            <p class="font-semibold">Messenger</p>
-            <div class="mt-4 flex flex-wrap gap-3">
-              <a href="https://t.me/innovaconsult" class="rounded-full bg-white px-4 py-2 font-bold text-navy">Telegram</a>
-              <a href="https://wa.me/16138677767" class="rounded-full bg-white px-4 py-2 font-bold text-navy">WhatsApp</a>
-            </div>
-            <a href="mailto:canada@innovaconsult.ca" class="mt-8 inline-block rounded-full bg-red px-6 py-3 font-bold text-white">Free Consultation Request</a>
-          </div>
+    <section id="contact" class="mx-auto max-w-6xl px-6 py-20">
+      <div class="rounded-[2rem] border border-cyan-400/20 bg-gradient-to-br from-slate-900 to-slate-950 p-10 md:p-12">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200">Contact</p>
+        <h2 class="mt-4 font-display text-4xl font-semibold text-white">Start with one high-friction workflow.</h2>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+          If you need AI to improve a real queue, real service flow, or real operating process, we can start with a
+          scoped audit and a concrete pilot plan.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="mailto:hello@innovaconsult.ai"
+            class="rounded-full bg-cyan-400 px-7 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+          >
+            hello@innovaconsult.ai
+          </a>
+          <a
+            href="https://t.me/mmixua"
+            class="rounded-full border border-slate-700 px-7 py-3 font-semibold text-slate-100 transition hover:border-cyan-300 hover:text-cyan-200"
+          >
+            Telegram
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white py-8">
-    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 text-sm text-slate-600 md:flex-row md:items-center">
-      <p>© {new Date().getFullYear()} Innova Group. All rights reserved.</p>
-      <a href="https://crystal.tax" class="font-semibold text-navy hover:text-red">Visit crystal.tax</a>
-    </div>
-  </footer>
-
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
-  <script type="application/ld+json" set:html={JSON.stringify(businessSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
 </BaseLayout>

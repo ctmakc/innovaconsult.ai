@@ -4,15 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: '#1E3A5F',
-        red: '#C41E3A',
-        snow: '#F8FAFC'
+        electric: '#22D3EE',
+        cobalt: '#2563EB',
+        ink: '#020617',
+        glow: '#7DD3FC'
       },
       fontFamily: {
-        sans: ['"DM Sans"', 'sans-serif']
+        sans: ['"Manrope"', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif']
       },
       boxShadow: {
-        card: '0 18px 45px -24px rgba(30, 58, 95, 0.35)'
+        card: '0 20px 80px -28px rgba(34, 211, 238, 0.32)'
       }
     }
   },
